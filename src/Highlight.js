@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import tmi from "tmi.js";
 
 class Highlight extends React.Component {
