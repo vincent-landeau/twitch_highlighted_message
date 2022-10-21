@@ -12,7 +12,6 @@ class Highlight extends React.Component {
         client.on('message', (channel, tags, message, self) => {
             if (message.includes("!alert ")) {
                 document.querySelector("#content").firstChild.innerHTML = `${tags['display-name']}: ${message.replace("!alert ", "")}`;
-                console.log(this.text);
                 this.showMessage()
             }
         });
