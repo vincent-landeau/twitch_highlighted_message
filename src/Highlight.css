@@ -1,0 +1,47 @@
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.content {
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    padding: 40px 0;
+    color: white;
+}
+.content hr {
+    margin: 0;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+}
+.content hr.top {
+    top: 0;
+    transform: translateX(-100%);
+}
+.content hr.bottom {
+    bottom: 0;
+    transform: translateX(100%);
+}
+
+.username,
+.message {
+    margin: 0;
+    max-width: 60vw;
+}
+
+.username {
+    text-transform: uppercase;
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 10px;
+}
+.message {
+    font-size: 2rem;
+}
