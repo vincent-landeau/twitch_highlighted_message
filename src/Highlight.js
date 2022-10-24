@@ -5,13 +5,13 @@ import {gsap} from "gsap";
 class Highlight extends React.Component {
     componentDidMount() {
         const client = new tmi.Client({
-            channels: ['usquikz_live']
+            channels: process.env.REACT_APP_CHANNELS.split(' ')
         });
 
         client.connect();
 
         client.on('message', (channel, tags, message, self) => {
-            if (message.includes("!alert ")) {
+            if (message.includes(`!${process.env.REACT_APP_HIGHLIGHT_CMD} `) && (tags.mod || tags.badges.broadcaster === "1")) {
                 document.querySelector(".username").innerHTML = tags['display-name'];
                 document.querySelector(".message").innerHTML = message.replace("!alert ", "");
                 this.showMessage()
