@@ -13,7 +13,7 @@ class Highlight extends React.Component {
         client.on('message', (channel, tags, message, self) => {
             if (message.includes(`!${process.env.REACT_APP_HIGHLIGHT_CMD} `) && (tags.mod || tags.badges.broadcaster === "1")) {
                 document.querySelector(".username").innerHTML = tags['display-name'];
-                document.querySelector(".message").innerHTML = message.replace("!alert ", "");
+                document.querySelector(".message").innerHTML = message.replace(`!${process.env.REACT_APP_HIGHLIGHT_CMD} `, "");
                 this.showMessage()
             }
         });
@@ -30,7 +30,7 @@ class Highlight extends React.Component {
             tl.forEach((value) => {
                 value.reversed(true)
             })
-        }, 4000);
+        }, process.env.REACT_APP_HIGHLIGHT_DURATION);
     }
 
     render() {
